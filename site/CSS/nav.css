@@ -13,7 +13,8 @@ ul {
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 0 0 0 15%;
+    justify-content: end;
+    padding: 0 40px 0 0;
     align-items: center;
 }
 
@@ -27,31 +28,31 @@ ul a {
 }
 
 ul li {
-    padding: 0 30px; 
+    padding: 0 0 0 60px;
+    width: 130px;
     text-align: center;
 }
 
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
     background-color: #FCFEFC;
     align-items: center;
     width: 100%;
     height: auto;
     padding: 10px 0;
-}
-
-nav img {
-    padding: 0 40px;
+    border-bottom: 2px #000000 solid;
 }
 
 .user {
     width: 50px;
     height: 50px;
+    padding: 0 0 0 60px;
 }
 
 .logo {
     width: 70px;
     height: 70px;
+    padding: 0 40px;
 }
