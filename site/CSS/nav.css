@@ -3,10 +3,13 @@
     src: url(../fonts/GODOFWAR.TTF);
 }
 
+@font-face {
+    font-family: 'font-18';
+    src: url(../fonts/gow2018/Berserker-Regular.ttf);
+}
+
 html {
     font-family: 'font';
-    background-color: #FCFEFC;
-    color: #000000;
 }
 
 ul {
@@ -29,8 +32,16 @@ ul a {
 
 ul li {
     padding: 0 0 0 60px;
-    width: 130px;
+    width: auto;
+    height: 100%;
     text-align: center;
+    display: flex;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    transition: 0.3s;
+    transform:scale(1.1) ;
 }
 
 nav {
@@ -39,13 +50,12 @@ nav {
     justify-content: space-between;
     background-color: #FCFEFC;
     align-items: center;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 10px 0;
-    border-bottom: 2px #000000 solid;
 }
 
-.user {
+img {
     width: 50px;
     height: 50px;
     padding: 0 0 0 60px;
