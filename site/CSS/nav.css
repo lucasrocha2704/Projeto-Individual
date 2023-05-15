@@ -13,35 +13,39 @@ html {
 }
 
 ul {
-    width: 100%;
+    width: auto;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: end;
-    padding: 0 40px 0 0;
+    padding: 0px 40px;
     align-items: center;
+    text-align: center;
 }
 
 ul a {
     text-decoration: none;
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 24px;
+    line-height: 24px;
     color: #CB0101;
     width: auto;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-ul li {
-    padding: 0 0 0 60px;
-    width: auto;
-    height: 100%;
-    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li a {
+    padding: 0 30px;
+    width: auto;
+    height: 48px;
     transition: 0.3s;
 }
 
-ul li:hover {
-    transition: 0.3s;
+ul li a:hover {
+    transition: 0.5s;
     transform:scale(1.1) ;
+    color: #ffffff;
 }
 
 nav {
@@ -50,19 +54,34 @@ nav {
     justify-content: space-between;
     background-color: #FCFEFC;
     align-items: center;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     padding: 10px 0;
 }
 
-img {
-    width: 50px;
-    height: 50px;
-    padding: 0 0 0 60px;
+nav .logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 0 0 40px;
 }
 
-.logo {
-    width: 70px;
-    height: 70px;
-    padding: 0 40px;
+a .user {
+    width: 60px;
+    height: auto;
+    padding: 0 0 0 20px;
+}
+
+.caixa {
+    width: 100%;
+    height: 45px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 1% 0;
+}
+
+.caixa:hover {
+    display: block;
+    transition: 0.5s;
+    transform: scale(1.1);
+    background-color: black;
 }
