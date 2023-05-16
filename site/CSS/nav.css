@@ -8,10 +8,6 @@
     src: url(../fonts/gow2018/Berserker-Regular.ttf);
 }
 
-html {
-    font-family: 'font';
-}
-
 ul {
     width: auto;
     height: 100%;
@@ -55,8 +51,9 @@ nav {
     background-color: #FCFEFC;
     align-items: center;
     width: 100%;
-    height: 100%;
     padding: 10px 0;
+    z-index: 1;
+    position: fixed;
 }
 
 nav .logo {
