@@ -54,6 +54,7 @@ nav {
     padding: 10px 0;
     z-index: 1;
     position: fixed;
+    font-family: 'font';
 }
 
 nav .logo {
