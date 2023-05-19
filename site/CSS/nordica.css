@@ -13,8 +13,9 @@ html {
     justify-content: center;
 }
 
-.banner video {
+.banner .video iframe {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     position: fixed;
     top: 0;
