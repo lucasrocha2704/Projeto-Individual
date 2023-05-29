@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'font';
-    src: url(../assets/fonts/GODOFWAR.TTF);
+    src: url(../fonts/GODOFWAR.TTF);
 }
 
 @font-face {
     font-family: 'font-18';
-    src: url(../assets/fonts/gow2018/Berserker-Regular.ttf);
+    src: url(../fonts/gow2018/Berserker-Regular.ttf);
 }
 
 ul {

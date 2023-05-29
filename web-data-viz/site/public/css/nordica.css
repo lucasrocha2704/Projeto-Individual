@@ -53,7 +53,6 @@ body {
 }
 
 .hist-nord {
-    margin-top: -5%;
     width: 100%;
     background-color: #FCFEFC;
     height: auto;
@@ -68,7 +67,7 @@ body {
     height: auto;
     border-radius: 30px;
     padding: 40px 30px;
-    background-color: black;
+    background-color: #262626;
     margin: 5% 20% 5% 20%;
     display: flex;
     flex-wrap: wrap;
@@ -104,7 +103,7 @@ body {
     text-align: justify;
     border-radius: 20px;
     border: 3px solid #8B4513;
-    background-image: url(../assets/imgs/papel-velho-horizontal.jpg);
+    background-image: url(../imgs/papel-velho-horizontal.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

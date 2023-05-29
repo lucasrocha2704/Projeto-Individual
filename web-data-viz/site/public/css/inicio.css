@@ -14,7 +14,7 @@ html {
 .banner {
     width: 100%;
     height: 95vh;
-    background-image: url(../assets/imgs/imagem\ titulo.png);
+    background-image: url(../imgs/imagem\ titulo.png);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -53,7 +53,7 @@ html {
     height: auto;
     border-radius: 30px;
     padding: 40px 30px;
-    background-color: black;
+    background-color: #262626;
     margin: 5% 0 7% 0;
     display: flex;
     flex-wrap: wrap;
@@ -88,7 +88,7 @@ html {
     padding: 50px 50px;
     border-radius: 20px;
     border: 3px solid #8B4513;
-    background-image: url(../assets/imgs/papel-velho-horizontal.jpg);
+    background-image: url(../imgs/papel-velho-horizontal.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -125,7 +125,7 @@ html {
     text-align: center;
     border-radius: 20px;
     border: 3px solid #8B4513;
-    background-image: url(../assets/imgs/papel-velho-horizontal.jpg);
+    background-image: url(../imgs/papel-velho-horizontal.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -142,7 +142,7 @@ html {
     height: 90vh;
     display: flex;
     flex-wrap: wrap;
-    background-image: url(../assets/imgs/background\ kratos.png);
+    background-image: url(../imgs/background\ kratos.png);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -203,7 +203,7 @@ html {
     text-align: justify;
     border-radius: 20px;
     border: 3px solid #8B4513;
-    background-image: url(../assets/imgs/papel-velho-horizontal.jpg);
+    background-image: url(../imgs/papel-velho-horizontal.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

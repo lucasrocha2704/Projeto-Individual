@@ -1,12 +1,72 @@
 footer {
     width: 100%;
-    background-color: #323232;
+    background-color: #262626;
+    font-family: 'font-18';
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.evolucao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 25%;
+    padding: 25px;
+}
+
+.paginas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 25%;
+    padding: 25px;
+}
+
+.redes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 25%;
+    padding: 25px;
+}
+
+.paginas a {
+    width: 100%;
+    font-size: 26px;
+    padding: 10px 0;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+}
+
+footer h3 {
+    width: 100%;
+    font-size: 26px;
+    padding: 10px 0;
+    color: #ffffff;
+    text-align: center;
 }
 
 footer p {
-    font-size: 24px;
-    padding: 100px 0;
-    display: flex;
-    justify-content: center;
-    color: white;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+}
+
+footer img {
+    width: 64px;
+    height: 64px;
+    padding: 20px 20px;
+}
+
+footer img:hover {
+    transition: 0.3s;
+    transform: scale(1.1);
 }

@@ -1,0 +1,12 @@
+html {
+    background-color: #EFE2B4;
+    color: #000000;
+    font-family: 'font';
+}
+
+.contaner {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
