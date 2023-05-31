@@ -10,7 +10,21 @@ create table usuario (
 );
 
 create table comentarios (
-	fkUsurio int,
+	fkUsuario int,
     foreign key(fkUsuario) references usuario(idUsuario),
     comentario varchar(280)
+);
+
+create table hashtags (
+    idHashtags int primary key auto_increment,
+    nome VARCHAR(45),
+    fkComentario int,
+    Foreign Key (fkComentario) REFERENCES comentarios(fkUsuario)    
+);
+
+CREATE table preferencias (
+    fkUsuario INT,
+    Foreign Key (fkUsuario) REFERENCES usuario(idUsuario),
+    mitologia VARCHAR(45),
+    personagem VARCHAR(45)
 );
