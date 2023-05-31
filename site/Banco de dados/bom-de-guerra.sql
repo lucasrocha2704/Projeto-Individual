@@ -1,6 +1,10 @@
 create database Evolucao_Kratos;
 use Evolucao_Kratos;
 
+create user 'war'@'localhost' identified by 'urubu100';
+grant select, insert, delete, update on Evolucao_Kratos.* to 'war'@'localhost';  
+flush privileges;
+
 create table usuario (
 	idUsuario int primary key auto_increment,
     nome varchar(16),
