@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title> Evolução de kratos</title>
+    <script src=""></script>
+</head>
+
+<body>
+    <!-- iniciodo header -->
+    <nav>
+        <a href=""><img class="logo" src="../icon/logo.png"></a>
+        <ul>
+            <div class="caixa">
+                <li><a href="../index.html">Início</a></li>
+            </div>
+            <div class="caixa">
+                <li><a href="../mitologiaGrega.html">Mitologia <br> Grega</a></li>
+            </div>
+            <div class="caixa">
+                <li><a href="../mitologiaNordica.html">Mitologia <br> Nórdica</a></li>
+            </div>
+            <div class="caixa">
+                <li><a href="../Comunidade.html">Comunidade</a></li>
+            </div>
+            <div class="caixaLogo">
+                <a href="../login.html"><img class="user" src="../imgs/simbulo-novo.png"></a>
+            </div>
+        </ul>
+    </nav>
+    <!-- Fim do header -->
+    <div class="main">
+        <div class="usuario">
+            <img src="../assets/user.png" id="imgUsuario">
+            <p id="nomeUsuario">Nome</p>
+
+            <button onclick="visualizarComent">Visualizar comentarios</button>
+            <button onclick="personalizarPerf">Personalizar perfil</button>
+        </div>
+        <div class="conteudo">
+            <div class="informacao">
+                <h1>Nome</h1>
+                <p id="nomePessoal">Lucas</p>
+                <h1>email</h1>
+                <p id="email">lucas@gmail.com</p>
+                <h1>Personagem favorito</h1>
+                <p id="personagem">kratos</p>
+                <h1>Mitologia favorita</h1>
+                <p id="mitologia">Grega</p>
+            </div>
+            <div class="personalizar" id="personalizar">
+                <h1>Alterar imagem de perfil</h1>
+                <input type="file" id="imgNova" name="imgNova">
+                <button onclick="novaImagem(idFuncionario)">Enviar</button>
+                <h1>Alterar Nome</h1>
+                <input type="text" id="outroNome">
+                <button onclick="mudarNome(idFuncionario)">Alterar Nome</button>
+                <p id="validacaoNome"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
