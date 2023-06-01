@@ -15,7 +15,7 @@ flush privileges;
 create table usuario (
 	idUsuario int primary key auto_increment,
     nome varchar(16),
-    email varchar(45),
+    email varchar(45) unique,
     senha varchar(12),
     foto varchar(64)
 );
@@ -28,7 +28,7 @@ create table comentarios (
 
 create table hashtags (
     idHashtags int primary key auto_increment,
-    nome VARCHAR(45),
+    nome VARCHAR(45) unique,
     fkComentario int,
     Foreign Key (fkComentario) REFERENCES comentarios(fkUsuario)    
 );
