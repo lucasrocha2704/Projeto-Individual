@@ -5,12 +5,20 @@ function validar() {
 
     if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
         erro = true;
-        alert("E-mail invalido")
+        ipt_email.style = "border-color: red;";
+        msg_email.innerHTML = "Email precisa de @ e .";
+    } else {
+        ipt_email.style = "border-color: transparent;";
+        msg_email.innerHTML = "";
     }
 
     if (senha.length < 8) {
         erro = true;
-        alert("a Senha tem que ter mais de 8 dígitos")
+        ipt_senha.style = "border-color: red;";
+        msg_senha.innerHTML = "senha tem que ter + de 8 Caracteres";
+    } else {
+        ipt_senha.style = "border-color: transparent;";
+        msg_senha.innerHTML = "";
     }
 
     if (erro == false) {

@@ -48,8 +48,10 @@ html {
     background-color: #D9D9D9;
     border-radius: 5px;
     margin: 8px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .email {
@@ -59,8 +61,10 @@ html {
     background-color: #D9D9D9;
     border-radius: 5px;
     margin: 8px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .senha {
@@ -70,8 +74,10 @@ html {
     background-color: #D9D9D9;
     border-radius: 5px;
     margin: 8px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .selects {
@@ -81,6 +87,7 @@ html {
     background-color: #D9D9D9;
     border-radius: 5px;
     margin: 8px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center; 
     flex-wrap: wrap;
@@ -121,7 +128,6 @@ html {
 .main input {
     width: 60%;
     border-radius: 5px;
-    margin: 8px 0;
     border-color: transparent;
     font-size: 20px;
     text-align: center;
@@ -147,4 +153,28 @@ html {
     color: #CB0101;
     transform: scale(1.1);
     letter-spacing: 1px;
+}
+
+#msg_email {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
+}
+
+#msg_senha {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
+}
+
+#msg_senha2 {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
+}
+
+#msg_nome {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
 }

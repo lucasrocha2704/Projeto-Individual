@@ -49,6 +49,7 @@ html {
     margin: 15px 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .senha {
@@ -60,6 +61,7 @@ html {
     margin: 15px 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .main button {
@@ -80,7 +82,7 @@ html {
 .main input {
     width: 60%;
     border-radius: 5px;
-    margin: 8px 0;
+    /* margin: px 0; */
     border-color: transparent;
     font-size: 20px;
     text-align: center;
@@ -106,4 +108,16 @@ html {
     color: #CB0101;
     transform: scale(1.1);
     letter-spacing: 1px;
+}
+
+#msg_email {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
+}
+
+#msg_senha {
+    color: #CB0101;
+    font-size: 10px;
+    text-align: center;
 }

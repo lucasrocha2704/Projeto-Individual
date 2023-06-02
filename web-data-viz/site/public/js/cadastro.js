@@ -1,31 +1,100 @@
+
 function validar() {
+    // aguardar();
+
+
+    var erro = false;
+
     var nome = ipt_nome.value;
     var email = ipt_email.value;
     var senha = ipt_senha.value;
     var confirmarSenha = ipt_confirmar_senha.value;
-    var erro = false;
 
     if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
         erro = true;
-        alert("E-mail invalido")
+        ipt_email.style = "border-color: red;";
+        msg_email.innerHTML = "Email precisa de @ e .";
+    } else {
+        ipt_email.style = "border-color: trasnparent;";
+        msg_email.innerHTML = "";
     }
 
-    if (nome.length  < 4) {
+    if (nome.length < 4) {
         erro = true;
-        alert("Nome tem que ter mais que 4 digitos")
+        ipt_nome.style = "border-color: red;";
+        msg_nome.innerHTML = "nome tem que ter mais de 4 dígitos";
+    } else {
+        ipt_nome.style = "border-color: trasnparent;";
+        msg_nome.innerHTML = "";
     }
 
     if (senha.length < 8) {
         erro = true;
-        alert("a Senha tem que ter mais de 8 dígitos")
+        ipt_senha.style = "border-color: red;";
+        msg_senha.innerHTML = "senha tem que ter + de 8 Caracteres";
+    } else {
+        ipt_senha.style = "border-color: transparent;";
+        msg_senha.innerHTML = "";
     }
 
     if (confirmarSenha != senha) {
         erro = true;
-        alert("A segunda senha tem que ser igual a primeira")
+        ipt_confirmar_senha.style = "border-color: red;";
+        msg_senha2.innerHTML = "senha tem que ter + de 8 Caracteres";
+
+    } else {
+        ipt_confirmar_senha.style = "border-color: transparent;";
+        msg_senha2.innerHTML = "";
     }
 
     if (erro == false) {
+       
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+            // setInterval(sumirMensagem, 5000)
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
 
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    } else {
+        // finalizarAguardar();
+        return false;
     }
 }
+
+// function sumirMensagem() {
+//     cardErro.style.display = "none"
+// }
