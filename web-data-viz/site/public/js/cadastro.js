@@ -2,7 +2,6 @@
 function validar() {
     // aguardar();
 
-
     var erro = false;
 
     var nome = ipt_nome.value;
@@ -48,10 +47,10 @@ function validar() {
     }
 
     if (erro == false) {
-       
+
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-            // setInterval(sumirMensagem, 5000)
+        // setInterval(sumirMensagem, 5000)
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrarUsuario", {
             method: "POST",
@@ -70,15 +69,17 @@ function validar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
+                // setTimeout(() => {
+                //     window.location = "login.html";
+                // }, "2000")
 
-                limparFormulario();
+                // limparFormulario();
+                pegarID();
+                alert("foi");
                 // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -95,6 +96,26 @@ function validar() {
     }
 }
 
+function pegarID() {
+    var email = ipt_email.value;
+
+    fetch(`/usuarios/selecionarUsuario/${email}`).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                var infos = resposta[0]
+                sessionStorage.setItem('ID_USUARIO', infos.idUsuario);
+
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+
+    });
+}
 // function sumirMensagem() {
 //     cardErro.style.display = "none"
 // }

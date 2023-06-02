@@ -16,7 +16,7 @@ router.post("/cadastrarUsuario", function (req, res) {
     usuarioController.cadastrarUsuario(req, res);
 })
 
-router.get("/selecionarUsuario", function (req, res) {
+router.get(`/selecionarUsuario/:email`, function (req, res) {
     usuarioController.selecionarUsuario(req, res);
 });
 

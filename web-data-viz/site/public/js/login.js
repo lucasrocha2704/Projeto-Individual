@@ -22,6 +22,60 @@ function validar() {
     }
 
     if (erro == false) {
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
 
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+
+                    setTimeout(function () {
+                        window.location = "../dashboard/perfil.html";
+                    }, 200); // apenas para exibir o loading
+
+                });
+                // cardErroLogin.style.display = "block"
+                // cardErroLogin.style.border = "2px solid greenyellow"
+                // cardErroLogin.style.color = "greenyellow"
+                // mensagem_erroLogin.innerHTML = "✅Entrando! Aguarde...✅";
+                alert('foi');
+            } else {
+                // cardErroLogin.style.display = "block"
+                // cardErroLogin.style.border = "2px solid red"
+                // cardErroLogin.style.color = "red"
+                // mensagem_erroLogin.innerHTML = "❌Conta não cadastrada❌";
+                alert("não foi");
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 }

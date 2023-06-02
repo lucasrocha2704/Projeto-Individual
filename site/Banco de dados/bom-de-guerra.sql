@@ -34,4 +34,4 @@ CREATE table preferencias (
 );
 select * from usuario;
 
--- drop database evolucao_Kratos;
+-- drop database Evolucao_Kratos;
