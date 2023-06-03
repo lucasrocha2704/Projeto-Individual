@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/footer.css">
     <title> Evolução de kratos</title>
     <script src="js/perfil.js"></script>
+    <script src="../js/funcoes.js"></script>
 </head>
 
 <body>
@@ -39,14 +40,15 @@
     <!-- Fim do header -->
     <div class="main">
         <div class="usuario">
-            <img src="../assets/user.png" id="imgUsuario">
-            <p id="nomeUsuario">Nome</p>
+            <img src="" id="imgUsuario">
+            <p id="nomeUsuario"></p>
 
-            <button onclick="visualizarComent">Visualizar comentarios</button>
-            <button onclick="personalizarPerf">Personalizar perfil</button>
+            <button onclick="visualizarComent()">Visualizar comentarios</button>
+            <button onclick="exibirDados()">Exibir dados</button>
+            <button onclick="exibirPersonalizar()">Personalizar perfil</button>
         </div>
         <div class="conteudo">
-            <div class="informacao">
+            <div class="informacao" id="dados">
                 <h1>Nome</h1>
                 <p id="nomePessoal">Lucas</p>
                 <h1>email</h1>
@@ -56,13 +58,13 @@
                 <h1>Mitologia favorita</h1>
                 <p id="mitologia">Grega</p>
             </div>
-            <div class="personalizar" id="personalizar">
+            <div class="personalizar" id="pers">
                 <h1>Alterar imagem de perfil</h1>
                 <input type="file" id="imgNova" name="imgNova">
-                <button onclick="novaImagem(idFuncionario)">Enviar</button>
+                <button onclick="novaImagem(idUsuario)">Enviar</button>
                 <h1>Alterar Nome</h1>
                 <input type="text" id="outroNome">
-                <button onclick="mudarNome(idFuncionario)">Alterar Nome</button>
+                <button onclick="mudarNome(idUsuario)">Alterar Nome</button>
                 <p id="validacaoNome"></p>
             </div>
         </div>
@@ -70,3 +72,9 @@
 </body>
 
 </html>
+
+<script>
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+   carregarPagina(idUsuario);
+</script>

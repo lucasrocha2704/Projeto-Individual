@@ -73,9 +73,9 @@ function validar() {
 
                 // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                // setTimeout(() => {
-                //     window.location = "login.html";
-                // }, "2000")
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "200")
 
                 // limparFormulario();
                 pegarID();

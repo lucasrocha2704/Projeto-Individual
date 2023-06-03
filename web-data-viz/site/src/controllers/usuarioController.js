@@ -152,11 +152,60 @@ function cadastrarPreferencias(req, res) {
     }
 }
 
+function exibirPerfil(req, res) {
+    var idUsuario= req.params.idUsuario;
+
+    usuarioModel.exibirPerfil(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function alterarNome(req, res) {
+    var nomeNovo = req.body.nome;
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.alterarNome(nomeNovo, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function alterarImagem(req, res) {
+    var foto = req.file.filename;
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.alterarImagem(foto, idUsuario)
+    .then(resultado => {
+        // res.status(201).send("foto alterada com sucesso");
+        res.json(resultado);
+      }).catch(err => {
+        res.status(500).send(err);
+      });
+}
+
 module.exports = {
     entrar,
     cadastrarUsuario,
     selecionarUsuario,
     cadastrarPreferencias,
+    exibirPerfil,
+    alterarNome,
+    alterarImagem,
     listar,
     testar
 }

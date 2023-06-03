@@ -52,10 +52,42 @@ function cadastrarPreferencias(idUsuario, mitologia, personagem) {
     return database.executar(instrucao);
 }
 
+function exibirPerfil(idUsuario) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function exibirPerfil()");
+    var instrucao = `
+    SELECT  nome,
+            foto
+            FROM usuario WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function alterarNome(nomeNovo, idUsuario) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterarNome():", nomeNovo, idUsuario);
+    var instrucao = `
+    UPDATE usuario SET nome = '${nomeNovo}' WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function alterarImagem(foto, idUsuario) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterarNome():", foto, idUsuario);
+    var instrucao = `
+    UPDATE usuario SET foto = '${foto}' WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrarUsuario,
     selecionarUsuario,
     cadastrarPreferencias,
+    exibirPerfil,
+    alterarNome,
+    alterarImagem,
     listar,
 };

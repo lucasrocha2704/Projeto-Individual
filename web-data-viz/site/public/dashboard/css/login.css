@@ -104,7 +104,7 @@
     color: #000000;
     font-size: 30px;
     font-family: 'font-18';
-    padding: 0 0 20px 0;
+    padding: 0 0 15% 0;
 }
 
 #outroNome {
@@ -115,6 +115,16 @@
     border-color: transparent;
     /* text-align: center; */
     padding: 3px 10px;
+}
+
+.personalizar {
+    width: 100%;
+    height: 70%;
+    font-family: 'font-18';
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .personalizar button {

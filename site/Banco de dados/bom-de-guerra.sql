@@ -8,9 +8,9 @@ use Evolucao_Kratos;
 create table usuario (
 	idUsuario int primary key auto_increment,
     nome varchar(16),
-    email varchar(45),
+    email varchar(45) UNIQUE,
     senha varchar(12),
-    foto varchar(64)
+    foto varchar(300)
 );
 
 create table comentarios (
