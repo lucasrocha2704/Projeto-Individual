@@ -65,6 +65,8 @@ function cadastrarUsuario(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var mitologia = req.body.mitologiaServer;
+    var personagem = req.body.personagemServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -73,68 +75,14 @@ function cadastrarUsuario(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else {
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarUsuario(nome, email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
-function selecionarUsuario(req, res) {
-    var email = req.body.emailServer;
-
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else {
-
-        usuarioModel.selecionarUsuario(email)
-            .then(function (resultado) {
-                if (resultado.length > 0) {
-                    res.status(200).json(resultado);
-                } else {
-                    res.status(204).send("Nenhum resultado encontrado!")
-                }
-            }).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
-function cadastrarPreferencias(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var idUsuario = req.body.idUsuarioServer;
-    var mitologia = req.body.mitologiaServer;
-    var personagem = req.body.personagemServer;
-
-    // Faça as validações dos valores
-    if (idUsuario == undefined) {
-        res.status(400).send("Seu idUsuario está undefined!");
     } else if (mitologia == undefined) {
         res.status(400).send("Seu mitologia está undefined!");
     } else if (personagem == undefined) {
         res.status(400).send("Sua personagem está undefined!");
-    } else {
+    } else { 
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarPreferencias(idUsuario, mitologia, personagem)
+        usuarioModel.cadastrarUsuario(nome, email, senha, mitologia, personagem)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -201,8 +149,6 @@ function alterarImagem(req, res) {
 module.exports = {
     entrar,
     cadastrarUsuario,
-    selecionarUsuario,
-    cadastrarPreferencias,
     exibirPerfil,
     alterarNome,
     alterarImagem,

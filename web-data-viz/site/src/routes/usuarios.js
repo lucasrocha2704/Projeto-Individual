@@ -16,14 +16,6 @@ router.post("/cadastrarUsuario", function (req, res) {
     usuarioController.cadastrarUsuario(req, res);
 })
 
-router.get(`/selecionarUsuario/:email`, function (req, res) {
-    usuarioController.selecionarUsuario(req, res);
-});
-
-router.post("/cadastrarPreferencias", function (req, res) {
-    usuarioController.cadastrarPreferencias(req, res);
-})
-
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

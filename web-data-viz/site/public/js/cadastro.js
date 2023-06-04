@@ -7,6 +7,9 @@ function validar() {
     var nome = ipt_nome.value;
     var email = ipt_email.value;
     var senha = ipt_senha.value;
+    var mitologia = select_mitologia.value;
+    var personagem = select_personagem.value;
+
     var confirmarSenha = ipt_confirmar_senha.value;
 
     if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
@@ -36,6 +39,21 @@ function validar() {
         msg_senha.innerHTML = "";
     }
 
+    if (mitologia == 0) {
+        erro = true
+        select_mitologia.style = "order-color: red;";
+    } else {
+        select_mitologia.style = "order-color: transparent;";
+    }
+
+    if (personagem == 0) {
+        erro = true
+        select_personagem.style = "order-color: red;";
+    } else {
+        select_personagem.style = "order-color: transparent;";
+        console.log(personagem);
+    }
+
     if (confirmarSenha != senha) {
         erro = true;
         ipt_confirmar_senha.style = "border-color: red;";
@@ -62,7 +80,9 @@ function validar() {
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
                 emailServer: email,
-                senhaServer: senha
+                senhaServer: senha,
+                mitologiaServer: mitologia,
+                personagemServer: personagem
             })
         }).then(function (resposta) {
 
@@ -96,26 +116,6 @@ function validar() {
     }
 }
 
-function pegarID() {
-    var email = ipt_email.value;
-
-    fetch(`/usuarios/selecionarUsuario/${email}`).then(function (resposta) {
-        if (resposta.ok) {
-
-            resposta.json().then(function (resposta) {
-                // console.log("Dados recebidos: ", JSON.stringify(resposta));
-                var infos = resposta[0]
-                sessionStorage.setItem('ID_USUARIO', infos.idUsuario);
-
-            });
-        } else {
-            throw ('Houve um erro na API!');
-        }
-    }).catch(function (resposta) {
-        console.error(resposta);
-
-    });
-}
 // function sumirMensagem() {
 //     cardErro.style.display = "none"
 // }
