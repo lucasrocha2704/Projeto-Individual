@@ -8,6 +8,10 @@
     src: url(../fonts/gow2018/Berserker-Regular.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 ul {
     width: auto;
     height: 100%;

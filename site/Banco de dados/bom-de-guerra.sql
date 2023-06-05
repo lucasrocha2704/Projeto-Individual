@@ -51,4 +51,4 @@ DELIMITER ;
 --             'Grega', 'Kratos'
 --         );
 
--- drop database Evolucao_Kratos;
+drop database Evolucao_Kratos;

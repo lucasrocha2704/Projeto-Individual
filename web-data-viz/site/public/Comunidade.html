@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="icon/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/comunidade.css">
+    <link rel="stylesheet" href="dashboard/dashboards.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
     <title> Evolução de kratos</title>
@@ -16,7 +16,7 @@
 <body>
     <!-- iniciodo header -->
     <nav>
-        <a href=""><img class="logo" src="icon/logo.png"></a>
+        <a href="#"><img class="logo" src="icon/logo.png"></a>
         <ul>
             <div class="caixa">
                 <li><a href="index.html">Início</a></li>
@@ -37,32 +37,127 @@
     </nav>
     <!-- Fim do header -->
     <div class="banner">
-        
+        <div class="janela">
+
+            <div class="texto">
+
+
+                <div class="header-left">
+
+                    <h1>Evolução do Kratos</h1>
+
+                    <div class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </div>
+
+                    <div class="btn-nav-white">
+                        <a href="cards.html">
+                            <h3>Aquários</h3>
+                        </a>
+                    </div>
+
+                    <div class="btn-nav-white">
+                        <a href="./dashboard.html">
+                            <h3>Gráficos</h3>
+                        </a>
+                    </div>
+
+                    <div class="btn-nav">
+                        <h3>Mural de Avisos</h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="dash-right">
+
+
+                <div class="avisos">
+                    <div id="alerta">
+                    </div>
+                    <div class="container">
+                        <h1>Publicar um aviso</h1>
+                        <div class="div-form">
+                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                                <label>
+                                    Título:
+                                    <br>
+                                    <input name="titulo" id="titulo" maxlength="100" type="text">
+                                </label>
+                                <br>
+                                <label>
+                                    Descrição (máximo de 250 caracteres):
+                                    <br>
+                                    <textarea name="descricao" id="textarea_descricao" maxlength="250"
+                                        rows="5"></textarea>
+                                </label>
+                                <br>
+                                <button>Enviar</button>
+                            </form>
+                        </div>
+                        <h1>Mural de Avisos</h1>
+                        <div class="div-results">
+                            <div id="feed_container" class="feed-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- MODAL -->
+                <!-- <div id="div_modal" class="div-modal">
+                    <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
+                    </div>
+                    <div id="modal_container" class="modal-container">
+                        <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
+                    </div>
+                </div> -->
+
+                <!-- AGUARDAR -->
+                <!-- <div id="div_aguardar" class="div-aguardar">
+                    <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
+                </div>  -->
+
+            </div>
+        </div>
     </div>
-    
+
     <footer>
         <div class="container">
             <div class="evolucao">
                 <h3>Evolucção de Kratos</h3>
-                <p>Entenda a história por traz da franquia de jogos de god of war, para acampanhar a evolução do protagonista</p>
+                <p>Entenda a história por traz da franquia de jogos de god of war, para acampanhar a evolução do
+                    protagonista</p>
             </div>
             <div class="paginas">
-               <a href="index.html"><h3>Inicio</h3></a>
-               <a href="mitologiaGrega.html"><h3>Mitologia Grega</h3></a>
-               <a href="mitologiaNordica.html"><h3>Mitologia Nordica</h3></a>
-               <a href="Comunidade.html"><h3>Comunidade</h3></a>   
+                <a href="index.html">
+                    <h3>Inicio</h3>
+                </a>
+                <a href="mitologiaGrega.html">
+                    <h3>Mitologia Grega</h3>
+                </a>
+                <a href="mitologiaNordica.html">
+                    <h3>Mitologia Nordica</h3>
+                </a>
+                <a href="Comunidade.html">
+                    <h3>Comunidade</h3>
+                </a>
             </div>
             <div class="redes">
                 <h3>Redes Sociais</h3>
 
                 <div class="linha1">
-                  <a href="https://www.instagram.com/santamonicastudio/"><img src="imgs/instagram-footer.png"></a>  
-                  <a href="https://web.facebook.com/santamonicastudio?_rdc=11&_rdr"><img src="imgs/facebook-footer.png"></a> 
+                    <a href="https://www.instagram.com/santamonicastudio/"><img src="imgs/instagram-footer.png"></a>
+                    <a href="https://web.facebook.com/santamonicastudio?_rdc=11&_rdr"><img
+                            src="imgs/facebook-footer.png"></a>
                 </div>
 
                 <div class="linha2">
-                    <a href="https://twitter.com/SonySantaMonica"><img src="imgs/twitter-footer.png"></a> 
-                    <a href="https://www.youtube.com/channel/UCfNRCubwLjsEAQG2TiJq4kQ"><img src="imgs/youtube-footer.png"></a> 
+                    <a href="https://twitter.com/SonySantaMonica"><img src="imgs/twitter-footer.png"></a>
+                    <a href="https://www.youtube.com/channel/UCfNRCubwLjsEAQG2TiJq4kQ"><img
+                            src="imgs/youtube-footer.png"></a>
                 </div>
             </div>
         </div>

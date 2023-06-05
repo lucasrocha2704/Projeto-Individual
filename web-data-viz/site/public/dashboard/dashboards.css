@@ -1,8 +1,20 @@
 /* pagina mural */
 
-*,
+/* *,
 body {
   font-family: "Exo 2", sans-serif;
+} */
+
+.texto{
+  padding: 84px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.texto h1, h3 {
+  font-size: 24px;
+  padding: 5px;
+  text-align: center;
 }
 
 .label-captura {
