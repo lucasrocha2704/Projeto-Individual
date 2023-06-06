@@ -1,9 +1,9 @@
 /* pagina mural */
 
-/* *,
+*,
 body {
-  font-family: "Exo 2", sans-serif;
-} */
+  font-family: 'font-18';
+}
 
 .texto{
   padding: 84px 0 0 0;
@@ -11,22 +11,22 @@ body {
   justify-content: center;
 }
 
-.texto h1, h3 {
+.texto h3 {
   font-size: 24px;
   padding: 5px;
   text-align: center;
 }
 
-.label-captura {
+/* .label-captura {
   display: flex;
   justify-content: center;
-}
+} */
 
 .dash-right .avisos {
   width: 100%;
+  padding: 40px 0 0 0 ;
   /* border: 3px solid pink; */
-  color: rgb(216, 216, 216);
-  font-family: "Exo 2", sans-serif;
+  color: #000000;
 }
 
 .dash-right .avisos .container {
@@ -37,10 +37,12 @@ body {
 
 .dash-right .avisos .container .div-form {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .dash-right .avisos .container .div-form #form_postagem {
-  width: 100%;
+  width: 60%;
 }
 
 .dash-right .avisos .div-form label {
@@ -49,33 +51,41 @@ body {
 
 .dash-right .avisos .div-form input {
   width: 100%;
+  margin: 10px 0;
   border-radius: 5px;
 }
 
 .dash-right .avisos .div-form textarea {
   width: 100%;
-  /* color: #E6005A; */
-  border: 3px solid #e6005a;
-  background-color: white;
+  border: 3px solid #CB0101;
+  background-color: #ffffff;
   border-radius: 5px;
 }
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: "Exo 2", sans-serif;
+  font-family: 'font-18';
   border: 0;
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
+  color: #ffffff;
+  background-color: #CB0101;
   width: 120px;
+  margin: 0 0 50px 0;
+}
+
+.dash-right .avisos .div-form button:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
+  color: #CB0101;
+  background-color: #ffffff;
 }
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: "Exo 2", sans-serif;
+  font-family: 'font-18';
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -109,6 +119,8 @@ body {
   background-color: #212124;
   border-radius: 5px;
   margin-bottom: 80px;
+  padding: 5%;
+  color: #ffffff;
 }
 
 .div-buttons {
@@ -122,7 +134,7 @@ body {
 
 /* pagina graficos */
 
-.dash-header {
+/* .dash-header {
   background-color: #212124;
 }
 
@@ -285,4 +297,4 @@ body {
 canvas {
   width: 100% !important;
   height: 100% !important;
-}
+} */
