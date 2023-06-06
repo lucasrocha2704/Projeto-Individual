@@ -2,13 +2,13 @@ create database Evolucao_Kratos;
 
 use Evolucao_Kratos;
 
--- create user 'war'@'localhost' identified by 'urubu100';
+create user 'war'@'localhost' identified by 'urubu100';
 
--- grant select, insert, delete, update on Evolucao_Kratos.* to 'war'@'localhost';
+grant select, insert, delete, update on Evolucao_Kratos.* to 'war'@'localhost';
 
--- GRANT EXECUTE ON PROCEDURE cadastrar_usuario to 'war'@'localhost';
+GRANT EXECUTE ON PROCEDURE cadastrar_usuario to 'war'@'localhost';
 
--- flush privileges;
+flush privileges;
 
 create table
     usuario (
@@ -26,13 +26,13 @@ create table
     );
 create table
     comentarios (
+        idComentario INT PRIMARY KEY AUTO_INCREMENT,
         fkUsuario int,
         foreign key(fkUsuario) references usuario(idUsuario),
         comentario varchar(280),
         fkhashtags int,
         Foreign Key (fkhashtags) REFERENCES hashtags(idHashtags)
     );
-
 CREATE table
     preferencias (
         fkUsuario INT,
@@ -86,6 +86,7 @@ VALUES (null, '#mitologiaGrega'), (null, '#mitologiaNórdica'),
 (null, '#gowChainsOfOlympus'), (null, '#gowGhostOfSparta');
 
 SELECT
+    c.idComentario,
     c.fkUsuario,
     c.comentario,
     c.fkhashtags,

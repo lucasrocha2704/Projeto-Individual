@@ -173,9 +173,10 @@
 
     function publicar() {
         var idUsuario = sessionStorage.ID_USUARIO;
+        
 
         var corpo = {
-            hashtags: form_postagem.hashtags.value,
+            fkhashtags: form_postagem.hashtags.value,
             comentario: form_postagem.comentario.value
         }
 
@@ -186,12 +187,12 @@
             },
             body: JSON.stringify(corpo)
         }).then(function (resposta) {
-
+            
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/public/Comunidade.html";
+                // window.alert("Post realizado com sucesso pelo usuario de nome: " + idUsuario + "!");
+                window.location = "/Comunidade.html";
                 limparFormulario();
                 // finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -227,7 +228,7 @@
 
             if (resposta.ok) {
                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/public/Comunidade.html"
+                window.location = "/Comunidade.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -257,7 +258,8 @@
                     feed.innerHTML = "";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-
+                        sessionStorage.ID_COMENTARIO = publicacao.idComentario;
+                        
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");

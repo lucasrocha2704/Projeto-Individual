@@ -23,11 +23,11 @@ router.post("/publicar/:idUsuario", function (req, res) {
     avisoController.publicar(req, res);
 });
 
-router.put("/editar/:idUsuario", function (req, res) {
+router.put("/editar/:idComentario", function (req, res) {
     avisoController.editar(req, res);
 });
 
-router.delete("/deletar/:idUsuario", function (req, res) {
+router.delete("/deletar/:idComentario", function (req, res) {
     avisoController.deletar(req, res);
 });
 
