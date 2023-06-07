@@ -181,6 +181,7 @@
     }
 
     function deletar(idUsuario) {
+       
         console.log("Criar função de apagar post escolhido - ID" + idUsuario);
         fetch(`/avisos/deletar/${idUsuario}`, {
             method: "DELETE",

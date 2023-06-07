@@ -19,52 +19,6 @@ function listar(req, res) {
     });
 }
 
-// function listarPorUsuario(req, res) {
-//     var idUsuario = req.params.idUsuario;
-
-//     avisoModel.listarPorUsuario(idUsuario)
-//         .then(
-//             function (resultado) {
-//                 if (resultado.length > 0) {
-//                     res.status(200).json(resultado);
-//                 } else {
-//                     res.status(204).send("Nenhum resultado encontrado!");
-//                 }
-//             }
-//         )
-//         .catch(
-//             function (erro) {
-//                 console.log(erro);
-//                 console.log(
-//                     "Houve um erro ao buscar os avisos: ",
-//                     erro.sqlMessage
-//                 );
-//                 res.status(500).json(erro.sqlMessage);
-//             }
-//         );
-// }
-
-// function pesquisarcomentario(req, res) {
-//     var comentario = req.params.comentario;
-
-//     avisoModel.pesquisarcomentario(comentario)
-//         .then(
-//             function (resultado) {
-//                 if (resultado.length > 0) {
-//                     res.status(200).json(resultado);
-//                 } else {
-//                     res.status(204).send("Nenhum resultado encontrado!");
-//                 }
-//             }
-//         ).catch(
-//             function (erro) {
-//                 console.log(erro);
-//                 console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
-//                 res.status(500).json(erro.sqlMessage);
-//             }
-//         );
-// }
-
 function publicar(req, res) {
     var idUsuario = req.params.idUsuario;
     var comentario = req.body.comentario;
@@ -93,26 +47,6 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
-    var novoComentario = req.body.comentario;
-    var idComentario = req.params.idComentario;
-
-    avisoModel.editar(novoComentario, idComentario)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
-
 function deletar(req, res) {
     var idComentario = req.params.idComentario;
 
@@ -134,9 +68,6 @@ function deletar(req, res) {
 module.exports = {
     testar,
     listar,
-    // listarPorUsuario,
-    // pesquisarcomentario,
     publicar,
-    editar,
     deletar
 }

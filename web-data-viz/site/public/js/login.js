@@ -50,20 +50,18 @@ function validar() {
 
                     setTimeout(function () {
                         window.location = "../dashboard/perfil.html";
-                    }, 200); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
-                // cardErroLogin.style.display = "block"
-                // cardErroLogin.style.border = "2px solid greenyellow"
-                // cardErroLogin.style.color = "greenyellow"
-                // mensagem_erroLogin.innerHTML = "✅Entrando! Aguarde...✅";
-                alert('foi');
+                cardErroLogin.style.display = "flex"
+                cardErroLogin.style.border = "2px solid greenyellow"
+                cardErroLogin.style.color = "greenyellow"
+                mensagem_erroLogin.innerHTML = "✅Entrando! Aguarde...✅";
             } else {
-                // cardErroLogin.style.display = "block"
-                // cardErroLogin.style.border = "2px solid red"
-                // cardErroLogin.style.color = "red"
-                // mensagem_erroLogin.innerHTML = "❌Conta não cadastrada❌";
-                alert("não foi");
+                cardErroLogin.style.display = "flex"
+                cardErroLogin.style.border = "2px solid red"
+                cardErroLogin.style.color = "red"
+                mensagem_erroLogin.innerHTML = "❌Conta não cadastrada❌";
 
                 console.log("Houve um erro ao tentar realizar o login!");
 

@@ -8,7 +8,7 @@
     src: url(../fonts/gow2018/Berserker-Regular.ttf);
 }
 
-html {
+body {
     scroll-behavior: smooth;
 }
 
