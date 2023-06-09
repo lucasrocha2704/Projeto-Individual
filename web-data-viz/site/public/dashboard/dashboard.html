@@ -145,12 +145,12 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+    function alterarTitulo(fkhashtags) {
+        var tituloAquario = document.getElementById(`tituloAquario${fkhashtags}`)
+        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + fkhashtags + "</span>"
     }
 
-    function exibirAquario(idAquario) {
+    function exibirAquario(fkhashtags) {
         let todosOsGraficos = document.getElementById("graficos")
 
         for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
@@ -170,12 +170,12 @@
         }
 
         // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
+        let graficoExibir = document.getElementById(`grafico${fkhashtags}`)
         graficoExibir.classList.remove("display-none")
         graficoExibir.classList.add("display-block")
 
         // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+        let btnExibir = document.getElementById(`btnAquario${fkhashtags}`)
         btnExibir.classList.remove("btn-white")
         btnExibir.classList.add("btn-pink")
     }
@@ -191,21 +191,21 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
+    function obterDadosGrafico(fkhashtags) {
 
-        alterarTitulo(idAquario)
+        alterarTitulo(fkhashtags)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${fkhashtags}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idAquario);
+                    plotarGrafico(resposta, fkhashtags);
                     
                 });
             } else {
@@ -220,7 +220,7 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta, fkhashtags) {
 
         console.log('iniciando plotagem do gráfico...');
 
@@ -236,13 +236,6 @@
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
             }]
         };
 
@@ -253,9 +246,8 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            labels.push(registro.hashtag);
+            dados.datasets[0].data.push(registro.mensagem);
         }
 
         console.log('----------------------------------------------')
@@ -268,17 +260,17 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`myChartCanvas${fkhashtags}`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(fkhashtags, dados, myChart), 2000);
     }
 
 
@@ -287,21 +279,21 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
+    function atualizarGrafico(fkhashtags, dados, myChart) {
 
 
 
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${fkhashtags}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
+                    obterdados(fkhashtags);
+                    // alertar(novoRegistro, fkhashtags);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                    let avisoCaptura = document.getElementById(`avisoCaptura${fkhashtags}`)
                     avisoCaptura.innerHTML = ""
 
 
@@ -329,12 +321,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkhashtags, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkhashtags, dados, myChart), 2000);
             }
         })
             .catch(function (error) {

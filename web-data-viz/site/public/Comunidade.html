@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
     <title> Evolução de kratos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="dashboard/alerta.js"></script>
     <script src="js/comunidade.js"></script>
 </head>
 
-<body onload="atualizarFeed()">
+<body onload="atualizarFeed(), obterDadosGrafico()">
     <!-- iniciodo header -->
     <nav>
         <a href="#"><img class="logo" src="icon/logo.png"></a>
@@ -39,6 +40,12 @@
     </nav>
     <!-- Fim do header -->
     <div class="janela">
+        <div class="estatisticas">
+            <div class="graphCard" id="grafico">
+                <canvas id="canvLine"></canvas>
+            </div>
+            <button onclick="exibir()" id="botao">Exibir estatisticas</button>
+        </div>
 
         <div class="texto">
 
@@ -103,25 +110,11 @@
                 </div>
             </div>
 
-
-
-
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
-                    <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-                    </div>
-                    <div id="modal_container" class="modal-container">
-                        <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
-                    </div>
-                </div> -->
-
-            <!-- AGUARDAR -->
-            <!-- <div id="div_aguardar" class="div-aguardar">
-                    <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
-                </div>  -->
-
         </div>
+
     </div>
+
+
 
     <footer>
         <div class="container">
@@ -167,4 +160,57 @@
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    let proximaAtualizacao;
+
+    var contextoMensagem = document.getElementById('canvLine').getContext('2d');
+
+    var chartBarra = new Chart(
+        contextoMensagem,
+        {
+            type: 'bar',
+            data: {
+                labels: ['#gowGhostOfSparta', '#gowChainsOfOlympus', '#gowAscension', '#gow5', '#gow4', '#gow3', '#gow2', '#gow1', '#atreus', '#kratos', '#mitologiaNórdica', '#mitologiaGrega'],
+                datasets: [{
+                    label: 'mensagem',
+                    data: [],
+                    type: 'bar',
+                    borderColor: '#F49C24',
+                    backgroundColor: '#0000000',
+                }],
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Assuntos em alta',
+                        color: '#000000',
+                        font: {
+                            size: 10
+                        }
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            color: '#262626'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#262626',
+                        }
+                    }
+                },
+            }
+        }
+
+    );
+
 </script>

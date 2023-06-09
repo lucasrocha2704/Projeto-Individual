@@ -73,7 +73,16 @@ INSERT INTO comentarios VALUES (NULL, 3, 'Kratos, o espartano vingativo, desafia
                                (NULL, 2, 'Em God of War, Kratos e seu filho embarcam em odisseia nórdica, enfrentando deuses e fortalecendo laços familiares, numa jornada emocional e mitológica.', 2),
                                (NULL, 1, 'God of War apresenta Kratos, um guerreiro espartano que busca redenção e ensina seu filho a enfrentar perigos mitológicos, forjando um laço poderoso.', 2),
                                (NULL, 4, 'Em God of War, Kratos transforma-se de guerreiro vingativo a pai protetor, numa jornada repleta de mitos gregos e ensinamentos familiares.', 2),
-                               (NULL, 1, 'Em God of War, Kratos desafia deuses gregos em busca de redenção. Aventurando-se pelo Monte Olimpo, Submundo e Labirinto de Creta, enfrenta Zeus, Atena e Poseidon, vivenciando a grandiosidade da mitologia grega em batalhas épicas e intrigas divinas.', 1);
+                               (NULL, 1, 'Em God of War, Kratos desafia deuses gregos em busca de redenção. Aventurando-se pelo Monte Olimpo, Submundo e Labirinto de Creta, enfrenta Zeus, Atena e Poseidon, vivenciando a grandiosidade da mitologia grega em batalhas épicas e intrigas divinas.', 1),
+                               (NULL, 3, 'Atreus, filho de Kratos em God of War, desempenha papel fundamental, fortalecendo o vínculo pai e filho.', 4),
+                               (NULL, 2, 'God of War 1 é o início da saga de Kratos, com combates intensos e mitologia grega.', 5),
+                               (NULL, 1, 'God of War 2 aprofunda a história, revelando traições e desafios divinos.', 6),
+                               (NULL, 4, 'God of War 3 é grandioso, com batalhas épicas e uma conclusão explosiva.', 7),
+                               (NULL, 1, 'God of War 4 reinventa a série, focando nas relações familiares e na mitologia nórdica.', 8),
+                               (NULL, 3, 'God of War 5 continua a jornada de Kratos e Atreus, expandindo o universo épico.', 9),
+                               (NULL, 2, 'God of War: Ascension é uma prequela, mostrando a luta de Kratos contra as Fúrias.', 10),
+                               (NULL, 1, 'Chains of Olympus explora eventos anteriores ao primeiro jogo. Kratos luta contra deuses e criaturas, buscando redenção em uma experiência épica.', 11),
+                               (NULL, 4, 'Ghost of Sparta expande a história de Kratos, revelando segredos sombrios do passado. Batalhas épicas e quebra-cabeças envolventes nos levam a uma jornada emocional.', 12);
 
 SELECT
     c.idComentario,
@@ -91,6 +100,12 @@ FROM comentarios c
     INNER JOIN usuario u ON fkUsuario = u.idUsuario
     INNER JOIN hashtags h ON idHashtags = fkhashtags ORDER BY idComentario;
 
+
+SELECT 
+	COUNT(comentario) AS mensagem,
+    fkhashtags
+    FROM comentarios GROUP BY fkhashtags;
+    
 -- CALL
 --     cadastrar_usuario(
 --         'nome',

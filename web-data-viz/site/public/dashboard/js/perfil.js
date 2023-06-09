@@ -84,3 +84,16 @@ function exibirPersonalizar() {
         aparecer = true
     }
 }
+ var aparecerDados = false;
+
+function exibirDados() {
+    if (aparecerDados) {
+        pers.style = "display: none";
+        dados.style = "display: none";
+        aparecerDados = false
+    } else {
+        pers.style = "display: none";
+        dados.style = "display: flex";
+        aparecerDados = true
+    }
+}
