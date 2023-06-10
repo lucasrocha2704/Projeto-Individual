@@ -5,12 +5,13 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
+    
+    var erro = false;
 
     function publicar() {
 
         var idUsuario = sessionStorage.ID_USUARIO;
         var select = hashtags.value;
-        var erro = false;
         var corpo = {
             fkhashtags: form_postagem.hashtags.value,
             comentario: form_postagem.comentario.value
@@ -20,13 +21,20 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
             hashtags.style = "border-color: red;";
             alert("Preencher o campo com alguma hashtag");
             erro = true;
+        } else {
+            erro = false;
         }
 
-        if (textarea_comentario.value.length <= 1) {
+        if (textarea_comentario.value.length < 1) {
             textarea_comentario.style = "border-color: red;"
             alert("Porfavor inserir uma mensagem");
             erro = true;
+        } else {
+            erro = false;
         }
+
+        console.log(erro)
+        if (erro == false) {
 
             fetch(`/avisos/publicar/${idUsuario}`, {
                 method: "POST",
@@ -55,6 +63,9 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
             });
 
             return false;
+        }  else {
+            return false;
+        }
     }
 
     function deletar(idComentario) {

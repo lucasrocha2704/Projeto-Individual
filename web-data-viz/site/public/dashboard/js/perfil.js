@@ -35,7 +35,7 @@ function mudarNome(idUsuario) {
         }).then(function (resposta) {
             // console.log(resposta)
             if (resposta.ok) {
-
+                sessionStorage.NOME_USUARIO = nomeNovo;
                 infos = resposta[0]
                 carregarPagina(idUsuario);
                 outroNome.value = "";
@@ -49,7 +49,7 @@ function mudarNome(idUsuario) {
             console.log(`#ERRO: ${resposta}`);
         });
     } else {
-        validacaoNome.innerHTML = "O seu novo nome tem que ter no mínimo <u>5</u> caracteres";
+        validacaoNome.innerHTML = "O seu novo nome tem que ter pelo menos 1 caracter";
         outroNome.style = "border-color: red;";
     }
 }
