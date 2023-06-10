@@ -23,6 +23,9 @@ router.post("/autenticar", function (req, res) {
 router.get("/Perfil/:idUsuario", function (req, res) {
     usuarioController.exibirPerfil(req, res);
 });
+router.get("/exibirDadosPessoais/:idUsuario", function (req, res) {
+    usuarioController.exibirDadosPessoais(req, res);
+});
 
 router.put("/alterarNome/:idUsuario", function (req, res) {
     usuarioController.alterarNome(req, res);
@@ -31,4 +34,5 @@ router.put("/alterarNome/:idUsuario", function (req, res) {
 router.post("/alterarImagem/:idUsuario", upload.single('imgNova'), (req, res) => {
     usuarioController.alterarImagem(req, res);
 });
+
 module.exports = router;

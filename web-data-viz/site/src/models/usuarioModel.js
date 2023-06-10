@@ -61,6 +61,21 @@ function alterarImagem(foto, idUsuario) {
     return database.executar(instrucao);
 }
 
+function exibirDadosPessoais(idUsuario) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n exibirDadosPessoais ()");
+    var instrucao = `
+    SELECT 
+	u.nome,
+    u.email,
+    p.personagem,
+    p.mitologia
+    FROM usuario u JOIN preferencias p 
+    ON idUsuario = fkUsuario where idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrarUsuario,
@@ -68,4 +83,5 @@ module.exports = {
     alterarNome,
     alterarImagem,
     listar,
+    exibirDadosPessoais
 };

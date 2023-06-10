@@ -77,23 +77,55 @@ function exibirPersonalizar() {
     if (aparecer) {
         pers.style = "display: none";
         dados.style = "display: none";
-        aparecer = false
+        aparecer = false;
+        aparecerDados = false;
     } else {
         pers.style = "display: flex";
         dados.style = "display: none";
-        aparecer = true
+        aparecer = true;
+        aparecerDados = false;
     }
 }
- var aparecerDados = false;
+var aparecerDados = false;
 
-function exibirDados() {
-    if (aparecerDados) {
-        pers.style = "display: none";
-        dados.style = "display: none";
-        aparecerDados = false
-    } else {
-        pers.style = "display: none";
-        dados.style = "display: flex";
-        aparecerDados = true
-    }
+// function exibirDados() {
+
+// }
+
+function exibirDados(idUsuario) {
+    fetch(`/usuarios/exibirDadosPessoais/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                infos = resposta[0]
+
+                var nome = document.getElementById("nomePessoal");
+                var email = document.getElementById("email");
+                var personagem = document.getElementById("personagem");
+                var mitologia = document.getElementById("mitologia");
+                nome.innerHTML = infos.nome;
+                email.innerHTML = infos.email;
+                personagem.innerHTML = infos.personagem;
+                mitologia.innerHTML = infos.mitologia;
+
+                if (aparecerDados) {
+                    pers.style = "display: none";
+                    dados.style = "display: none";
+                    aparecer = false;
+                    aparecerDados = false;
+                } else {
+                    pers.style = "display: none";
+                    dados.style = "display: flex";
+                    aparecer = false;
+                    aparecerDados = true;
+                }
+
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+    });
 }

@@ -20,6 +20,7 @@ create table
         idHashtags int primary key auto_increment,
         nome VARCHAR(45)
     );
+    
 create table
     comentarios (
         idComentario INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,6 +30,7 @@ create table
         fkhashtags int,
         Foreign Key (fkhashtags) REFERENCES hashtags(idHashtags)
     );
+    
 CREATE table
     preferencias (
         fkUsuario INT,
@@ -36,6 +38,7 @@ CREATE table
         mitologia VARCHAR(7),
         personagem VARCHAR(6)
     );
+    
 DELIMITER //
 CREATE PROCEDURE CADASTRAR_USUARIO(IN US_NOME VARCHAR
 (16), US_EMAIL VARCHAR(45), US_SENHA VARCHAR(12), 
@@ -44,7 +47,7 @@ VARCHAR(6)) BEGIN
 	INSERT INTO usuario (nome, email, senha, foto)
 	VALUES ( us_nome, us_email, us_senha, us_foto);
 	INSERT INTO preferencias
-	VALUES ( (SELECT idUsuario FROM usuario WHERE us_email = us_email), pr_mitologia, pr_personagem);
+	VALUES ( (SELECT idUsuario FROM usuario WHERE email = us_email), pr_mitologia, pr_personagem);
 	END// 
 DELIMITER ;
 
@@ -56,10 +59,10 @@ SELECT * from preferencias;
 SELECT * FROM hashtags;
 SELECT * FROM comentarios;
 
-INSERT INTO usuario VALUES (null, 'Lucas Neves', 'lucas@gmail.com', 'lucas123', 'user.png'),
-                           (null, 'Maria Silva', 'maria@gmail.com', 'maria123', 'user.png'),
-                           (null, 'João Santos', 'joao@gmail.com', 'joao123', 'user.png'),
-                           (null, 'Ana Oliveira', 'ana@gmail.com', 'ana123', 'user.png');
+CALL cadastrar_usuario ('Lucas Neves', 'lucas@gmail.com', 'lucas123', 'user.png', 'Grega', 'Kratos');
+CALL cadastrar_usuario ('Maria Silva', 'maria@gmail.com', 'maria123', 'user.png', 'Nórdica', 'Mimir');
+CALL cadastrar_usuario ('João Santos', 'joao@gmail.com', 'joao123', 'user.png', 'Grega', 'Atreus');
+CALL cadastrar_usuario ('Ana Oliveira', 'ana@gmail.com', 'ana123', 'user.png', 'Nórdica', 'Kratos');
 
 INSERT INTO hashtags
 VALUES (null, '#mitologiaGrega'), (null, '#mitologiaNórdica'), 
@@ -103,17 +106,19 @@ FROM comentarios c
 
 SELECT 
 	COUNT(comentario) AS mensagem,
-    fkhashtags
-    FROM comentarios GROUP BY fkhashtags;
+    idHashtags
+    FROM comentarios RIGHT JOIN hashtags 
+    ON fkhashtags = idHashtags GROUP BY idHashtags 
+    ORDER BY 
+    idHashtags DESC;
     
--- CALL
---     cadastrar_usuario(
---         'nome',
---         'email',
---         'senha',
---         'user.png',
---         'Grega',
---         'Kratos'
---     );
+SELECT 
+	u.nome,
+    u.email,
+    p.personagem,
+    p.mitologia
+    FROM usuario u JOIN preferencias p 
+    ON idUsuario = fkUsuario where idUsuario = 1;
+    
 
 -- drop database Evolucao_Kratos;

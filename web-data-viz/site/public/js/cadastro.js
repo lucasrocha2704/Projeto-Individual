@@ -41,16 +41,16 @@ function validar() {
 
     if (mitologia == 0) {
         erro = true
-        select_mitologia.style = "order-color: red;";
+        select_mitologia.style = "border-color: red;";
     } else {
-        select_mitologia.style = "order-color: transparent;";
+        select_mitologia.style = "border-color: transparent;";
     }
 
     if (personagem == 0) {
         erro = true
-        select_personagem.style = "order-color: red;";
+        select_personagem.style = "border-color: red;";
     } else {
-        select_personagem.style = "order-color: transparent;";
+        select_personagem.style = "border-color: transparent;";
         console.log(personagem);
     }
 

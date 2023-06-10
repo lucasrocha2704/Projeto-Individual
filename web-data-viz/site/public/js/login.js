@@ -1,3 +1,7 @@
+if (typeof sessionStorage.ID_USUARIO !== 'undefined') {
+    window.location.href ="../dashboard/perfil.html"
+} else {
+
 function validar() {
     var email = ipt_email.value;
     var senha = ipt_senha.value;
@@ -76,4 +80,5 @@ function validar() {
 
         return false;
     }
+}
 }

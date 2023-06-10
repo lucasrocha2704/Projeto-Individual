@@ -7,13 +7,21 @@ function buscarUltimasMedidas() {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `SELECT 
         COUNT(comentario) AS mensagem,
-        fkhashtags
-        FROM comentarios GROUP BY fkhashtags;`;
+        idHashtags
+        FROM comentarios RIGHT JOIN hashtags 
+        ON fkhashtags = idHashtags 
+        GROUP BY idHashtags 
+        ORDER BY 
+        idHashtags DESC`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `SELECT 
         COUNT(comentario) AS mensagem,
-        fkhashtags
-        FROM comentarios GROUP BY fkhashtags;`;
+        idHashtags
+        FROM comentarios RIGHT JOIN hashtags 
+        ON fkhashtags = idHashtags 
+        GROUP BY idHashtags 
+        ORDER BY 
+        idHashtags DESC`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -30,14 +38,22 @@ function buscarMedidasEmTempoReal() {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `SELECT 
         COUNT(comentario) AS mensagem,
-        fkhashtags
-        FROM comentarios GROUP BY fkhashtags;`;
+        idHashtags
+        FROM comentarios RIGHT JOIN hashtags 
+        ON fkhashtags = idHashtags 
+        GROUP BY idHashtags 
+        ORDER BY 
+        idHashtags DESC`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `SELECT 
         COUNT(comentario) AS mensagem,
-        fkhashtags
-        FROM comentarios GROUP BY fkhashtags;`;
+        idHashtags
+        FROM comentarios RIGHT JOIN hashtags 
+        ON fkhashtags = idHashtags 
+        GROUP BY idHashtags 
+        ORDER BY 
+        idHashtags DESC`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
