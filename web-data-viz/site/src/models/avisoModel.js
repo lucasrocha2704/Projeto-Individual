@@ -3,8 +3,8 @@ var database = require("../database/config");
 function listar() {
     console.log("ACESSEI O comentarios  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    SELECT 
-    C.idComentario,
+    SELECT
+    c.idComentario,
     c.fkUsuario,
     c.comentario,
     c.fkhashtags,
@@ -16,10 +16,8 @@ function listar() {
     h.idHashtags,
     h.nome hashtag
 FROM comentarios c
-    INNER JOIN usuario u
-        ON fkUsuario = u.idUsuario 
-    INNER JOIN hashtags h
-        ON idHashtags = fkhashtags ORDER BY idComentario;
+    INNER JOIN usuario u ON fkUsuario = u.idUsuario
+    INNER JOIN hashtags h ON idHashtags = fkhashtags ORDER BY idComentario;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
