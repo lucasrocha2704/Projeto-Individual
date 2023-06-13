@@ -5,7 +5,7 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
-    
+
     var erro = false;
 
     function publicar() {
@@ -63,7 +63,7 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
             });
 
             return false;
-        }  else {
+        } else {
             return false;
         }
     }
@@ -121,7 +121,6 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
                         spanhashtags.innerHTML = "<u><b>" + publicacao.hashtag + "</u></b>";
                         spanNome.innerHTML = `<img src="assets/${publicacao.foto}" > <b> ${publicacao.nome} </b>`;
                         divcomentario.innerHTML = "Comentário: <br><br><b>" + publicacao.comentario + "</b>";
-                        btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
                         spanhashtags.id = "inputNumero" + publicacao.idComentario;
@@ -131,18 +130,26 @@ if (typeof sessionStorage.ID_USUARIO == 'undefined') {
 
                         divButtons.className = "div-buttons"
 
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idComentario;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
+                        // btnDeletar.className = "publicacao-btn-editar"
+                        // btnDeletar.id = "btnDeletar" + publicacao.idComentario;
+                        // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanhashtags);
                         divPublicacao.appendChild(divcomentario);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
+
+                        if (sessionStorage.ID_USUARIO == publicacao.fkUsuario || sessionStorage.ID_USUARIO == 1) {
+                            btnDeletar.innerHTML = "Deletar";
+                            btnDeletar.className = "publicacao-btn-editar"
+                            btnDeletar.id = "btnDeletar" + publicacao.idComentario;
+                            btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
+                            divButtons.appendChild(btnDeletar);
+                        }
                     }
+
 
                 });
             } else {

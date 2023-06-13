@@ -106,6 +106,7 @@ function validar() {
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
+            alert("Conta já cadastrada");
             // finalizarAguardar();
         });
 
